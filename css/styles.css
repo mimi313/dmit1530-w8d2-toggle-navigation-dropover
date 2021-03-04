@@ -1,0 +1,166 @@
+html {
+	font-size: 62.5%;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* mobile first css */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.6rem;
+    background-color: #192f5e;
+}
+
+header {
+	background-color: #fff;
+	padding: 2%;
+}
+
+
+
+
+
+header a {
+    color: #3f3f3f;
+    text-decoration: none;
+
+    /*Allows the clickable area to fill the parent container (li)*/
+    display: block;
+}
+
+
+.menu a:hover,
+.menu a:active {
+    background-color: gainsboro;
+    border-radius: 4px;
+}
+
+.toggle-btn {
+    border: none;
+    background-color: #fff;
+
+    /*focus outline is used to provide visual feedback -screenreaders,
+    mouseless (tabbing) navigation*/
+    outline: none;
+}
+
+.toggle-btn:hover {
+    /*Lets people know that this is part of the navigation*/
+    cursor: pointer;
+}
+
+svg rect {
+    /*Changes the color of an svg*/
+    fill: #3f3f3f;
+}
+
+.menu li {
+    /*Using to set the height of the container*/
+    line-height: 4rem;
+    text-align: center;
+    }
+
+/* Step two: style the nag and hide the button when we are ready to move to a wider viewport */
+
+header nav {
+    /* Now outside of the DOM - no longer a true child of the parent container
+    Put the bg color back */
+    position: absolute;
+    left: 0;
+    /* That is 100% of the viewport width */
+    width: 100vw;
+    background-color: #ffffff;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.7s ease-in-out;
+}
+
+ul.menu {
+    padding-bottom: 1rem;
+}
+
+.show-nav {
+    max-height: 20rem;
+}
+
+/* ************************* section ****************** */
+section {
+    padding: 3.125rem;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+section p {
+    color: #d5e294;
+    border-bottom: 2px solid #d5e294;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    font-size: 1.777rem;
+}
+
+section h2,
+footer {
+    color: #fff;
+    font-size: 3.157rem;
+    margin-bottom: 2rem;
+}
+
+/*--- Footer --- */
+footer {
+	text-align: center;
+	position: -webkit-sticky;
+	position: sticky;
+}
+
+/*Gallery code*/
+
+.gallery {
+    
+} 
+
+@media only screen and (min-width: 510px) {
+        .toggle-btn {
+            /* Removes the object from the document flow (DOM) */
+            display: none;
+        }
+
+        header nav {
+            /* There is enough room from the top to hold the header */
+            max-height: 6.6rem;
+            /* The following three lines reset back to default */
+            position: static;
+            overflow: visible;
+            width: auto;
+        }
+
+        .menu,
+        header {
+            /* Change the nav from a vertical layout to an horizontal layout */
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .menu li {
+            margin-left: 0.5rem;
+            /*flex-grow: 1;
+            flex-shrink: 0;
+            flex-basis: auto;
+            text-align: center;*/
+        }
+
+        .menu li a {
+            padding: 0.5rem; 
+       }
+}
+
+@media only screen and (min-width: 1300px) {
+        /* Constrains the contant to keep it from getting too far apart */
+        header {
+            width: 1300px;
+            margin: 0 auto;
+        }
+    }
